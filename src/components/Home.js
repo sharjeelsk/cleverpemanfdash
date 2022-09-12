@@ -35,7 +35,7 @@ function Home(props) {
              </IconButton>
              </span>
 
-            <h1>Hi, Group Admin</h1>
+            <h1>Hi, Manufacturer Admin</h1>
             {
               props.user.userInfo&&<section>
                 <p>Name: {props.user.userInfo.name}</p>

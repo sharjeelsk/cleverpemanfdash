@@ -20,10 +20,10 @@ function Merchants(props) {
 
     React.useEffect(()=>{
         console.log(props.user.userInfo.groupId)
-        axios.post(`${process.env.REACT_APP_DEVELOPMENT}/api/org/members`,{groupId:props.user.userInfo.groupId},{headers:{token:props.user.user}})
+        axios.get(`${process.env.REACT_APP_DEVELOPMENT}/api/user/mfrMerchant`,{headers:{token:props.user.user}})
         .then(res=>{
             console.log(res)
-            let arr = res.data.result.map((item,index)=>({...item,id:index+1}))
+            let arr = res.data.result[0].merchants.map((item,index)=>({...item,id:index+1}))
             setData(arr)
             axios.get(`${process.env.REACT_APP_DEVELOPMENT}/api/sApproval/userMerchant`,{headers:{token:props.user.user}})
             .then(response=>{
@@ -90,7 +90,7 @@ function Merchants(props) {
             </div>}
             </div>
 
-            <h1>Merchants Belonging to Your Group</h1>
+            <h1>{props.user.userInfo.name} Merchant's</h1>
             <div style={{ height: '40vh', width: '98%' }}>
                 <DataGrid
                     rows={data}
@@ -101,7 +101,7 @@ function Merchants(props) {
                 />
             </div>
 
-            <h1>Merchants Sent For Approval</h1>
+            <h1>Merchant Status</h1>
             <div style={{ height: '40vh', width: '98%' }}>
                 <DataGrid
                     rows={merchantApprovals}

@@ -18,7 +18,7 @@ const Dashhead = (props) => {
         
             
         <div className={display?"shadow-lg dashhead":'dashhead displayhidden'}>
-            <h1>MR Admin</h1>
+            <h1>Partner Portal</h1>
             {id===1?<div onClick={()=>props.history.push('dashboard')} className="menu-container-active">
                 <p><HomeIcon /> <span className="pl-1">Home</span></p>
             </div>:
