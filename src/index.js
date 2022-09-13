@@ -13,7 +13,7 @@ const theme = createTheme({
       main: "#000",
     },
     secondary: {
-      main: "#fc0303",
+      main: "#ffff",
     },
     tertiary:{
       main:"#b66dff"
