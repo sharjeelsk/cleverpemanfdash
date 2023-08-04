@@ -35,15 +35,21 @@ function Home(props) {
              </IconButton>
              </span>
 
-            <h1>Hi, Manufacturer Admin</h1>
+            <h1>Hi, Manufacturer</h1>
             {
-              props.user.userInfo&&<section>
-                <p>Name: {props.user.userInfo.name}</p>
-                <p>Email: {props.user.userInfo.email}</p>
-                <p>GroupId: {props.user.userInfo.groupId}</p>
-                <p>Mobile No: {props.user.userInfo.mobileNo}</p>
-                <p>Role: {props.user.userInfo.role}</p>
+              props.user.userInfo&&<div class="card">
+              <section>
+                <p class="heading">Name:</p>
+                <p>{props.user.userInfo.name}</p>
+                <p class="heading">Email:</p>
+                <p>{props.user.userInfo.email}</p>
+                <p class="heading">GroupId:</p>
+                <p>{props.user.userInfo.groupId}</p>
+                <p class="heading">Mobile No:</p>
+                <p>{props.user.userInfo.mobileNo}</p>
               </section>
+            </div>
+            
             }
 
 

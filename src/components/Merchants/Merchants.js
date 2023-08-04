@@ -20,10 +20,10 @@ function Merchants(props) {
 
     React.useEffect(()=>{
         console.log(props.user.userInfo.groupId)
-        axios.get(`${process.env.REACT_APP_DEVELOPMENT}/api/user/mfrMerchant`,{headers:{token:props.user.user}})
+        axios.post(`${process.env.REACT_APP_DEVELOPMENT}/api/oem/merchants`,{oemId:props.user.userInfo.groupId},{headers:{token:props.user.user}})
         .then(res=>{
             console.log(res)
-            let arr = res.data.result[0].merchants.map((item,index)=>({...item,id:index+1}))
+            let arr = res.data.result.map((item,index)=>({...item,id:index+1}))
             setData(arr)
             axios.get(`${process.env.REACT_APP_DEVELOPMENT}/api/sApproval/userMerchant`,{headers:{token:props.user.user}})
             .then(response=>{
@@ -61,7 +61,7 @@ function Merchants(props) {
             <MenuIcon fontSize="inherit" />
              </IconButton>
              </span>
-             <h1>Search for Specific Merchant</h1>
+             {/* <h1>Search for Specific Merchant</h1>
 
             <div className="search-merchant-div row m-auto justify-content-around">
 
@@ -88,7 +88,7 @@ function Merchants(props) {
                     })
                 }} variant="contained">Add to Organization</Button>
             </div>}
-            </div>
+            </div> */}
 
             <h1>{props.user.userInfo.name} Merchant's</h1>
             <div style={{ height: '40vh', width: '98%' }}>
@@ -101,7 +101,7 @@ function Merchants(props) {
                 />
             </div>
 
-            <h1>Merchant Status</h1>
+            {/* <h1>Merchant Status</h1>
             <div style={{ height: '40vh', width: '98%' }}>
                 <DataGrid
                     rows={merchantApprovals}
@@ -110,7 +110,7 @@ function Merchants(props) {
                     checkboxSelection
                     onRowClick={(item,ev)=>props.history.push('/orderdetails',item.row)}
                 />
-            </div>
+            </div> */}
 
 
              </div>
@@ -122,12 +122,11 @@ const columns2 = [
     { field: 'id', headerName: 'ID',width:20},
     //{ field: 'brand', headerName: 'Brand Name',valueGetter:(param)=>param.value.name,width:150},
     { field: 'name', headerName: 'Name',valueGetter:(param)=>param.row.name,width:150},
-    { field: 'email', headerName: 'Email',valueGetter:(param)=>param.row.email,width:200},
+    { field: 'email', headerName: 'Email',valueGetter:(param)=>param.row.email,width:300},
     { field: 'groupId', headerName: 'GroupId',valueGetter:(param)=>param.row.groupId,width:150},
     { field: 'mobileNo', headerName: 'Mobile No',valueGetter:(param)=>param.row.mobileNo,width:150},
     { field: 'merchantId', headerName: 'Merchant Id',valueGetter:(param)=>param.row.merchantId,width:150},
-    { field: 'verified', headerName: 'Verified',valueGetter:(param)=>param.row.verified.toString(),width:150},
-    {field:"createdAt",headerName:"Created At",valueGetter:(param)=>moment.parseZone(param.value).local().format("DD/MM/YY"),width:120}
+    { field: 'suspended', headerName: 'Suspended',valueGetter:(param)=>param.row.suspended.toString(),width:150},
 
 
   ];
@@ -136,12 +135,11 @@ const columns2 = [
     { field: 'id', headerName: 'ID',width:20},
     //{ field: 'brand', headerName: 'Brand Name',valueGetter:(param)=>param.value.name,width:150},
     { field: 'name', headerName: 'Name',valueGetter:(param)=>param.row.merchantDetails.name,width:150},
-    { field: 'email', headerName: 'Email',valueGetter:(param)=>param.row.merchantDetails.email,width:200},
+    { field: 'email', headerName: 'Email',valueGetter:(param)=>param.row.merchantDetails.email,width:300},
     
     { field: 'mobileNo', headerName: 'Mobile No',valueGetter:(param)=>param.row.merchantDetails.mobileNo,width:150},
     { field: 'merchantId', headerName: 'Merchant Id',valueGetter:(param)=>param.row.merchantDetails.merchantId,width:150},
     { field: 'status', headerName: 'Status',valueGetter:(param)=>param.row.status,width:150},
-    {field:"createdAt",headerName:"Created At",valueGetter:(param)=>moment.parseZone(param.value).local().format("DD/MM/YY"),width:120}
 
 
   ];
