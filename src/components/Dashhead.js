@@ -14,6 +14,8 @@ import {connect} from 'react-redux'
 import {Button} from '@mui/material'
 import LogoutIcon from '@mui/icons-material/Logout';
 import {deleteUser} from './redux/user/userActions'
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import ArticleIcon from '@mui/icons-material/Article';
 const Dashhead = (props) => {
     console.log(props);
     let {id,display} = props
@@ -30,7 +32,23 @@ const Dashhead = (props) => {
             </div>
             }
 
-            {id===2?<div className="menu-container-active" onClick={()=>props.history.push('merchants')}>
+            {id===2?<div className="menu-container-active" onClick={()=>props.history.push('products')}>
+                <p><AddShoppingCartIcon /> <span className="pl-1">Products</span></p>
+            </div>:
+            <div className="menu-container" onClick={()=>props.history.push('products')}>
+            <p><AddShoppingCartIcon /> <span className="pl-2">Products</span></p>
+            </div>
+            }
+
+            {id===3?<div className="menu-container-active" onClick={()=>props.history.push('completedorders')}>
+                <p><ArticleIcon /> <span className="pl-1">Completed Orders</span></p>
+            </div>:
+            <div className="menu-container" onClick={()=>props.history.push('completedorders')}>
+            <p><ArticleIcon /> <span className="pl-2">Completed Orders</span></p>
+            </div>
+            }
+
+            {/* {id===2?<div className="menu-container-active" onClick={()=>props.history.push('merchants')}>
                 <p><NoteAddIcon /> <span className="pl-1">Merchants</span></p>
             </div>:
             <div className="menu-container" onClick={()=>props.history.push('merchants')}>
@@ -52,7 +70,7 @@ const Dashhead = (props) => {
             <div className="menu-container" onClick={()=>props.history.push('schemesapproval')} >
             <p><EventAvailableOutlinedIcon /> <span className="pl-2">Schemes Approval</span></p>
             </div>
-            }
+            } */}
 
             <div onClick={()=>{
                 props.deleteUser();

@@ -7,6 +7,10 @@ import Merchants from './components/Merchants/Merchants';
 import SignUp from './components/Auth/SignUp';
 import Schemes from './components/Schemes/Schemes';
 import SchemesApproval from './components/SchemesApproval/SchemesApproval';
+import CompletedOrders from './components/Orders/CompletedOrders';
+import Products from './components/Products/Products';
+import ProductDetail from './components/Products/ProductDetail';
+
 
 function App() {
   return (
@@ -19,6 +23,9 @@ function App() {
       <Route path="/merchants" component={Merchants} />
       <Route path="/schemes" component={Schemes} />
       <Route path="/schemesapproval" component={SchemesApproval} />
+      <Route path="/completedorders" component={CompletedOrders} />
+      <Route path="/products" component={Products} />
+      <Route path="/productdetail" component={ProductDetail} />
 
     </Switch>
   );
