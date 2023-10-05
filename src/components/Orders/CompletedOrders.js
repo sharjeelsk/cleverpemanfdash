@@ -58,11 +58,14 @@ function CompletedOrders(props) {
 const columns2 = [
     { field: 'id', headerName: 'ID',width:20},
     //{ field: 'brand', headerName: 'Brand Name',valueGetter:(param)=>param.value.name,width:150},
-    { field: 'customerMobile', headerName: 'Customer Mobile No',valueGetter:(param)=>param.row.customer.mobileNo,width:150},
-    { field: 'reciept', headerName: 'Reciept',valueGetter:(param)=>param.row.reciept?"Uploaded":"Not Uploaded",width:200},
-    { field: 'status', headerName: 'Order Status',valueGetter:(param)=>param.row.status,width:150},
+    { field: 'name', headerName: 'Product Name',valueGetter:(param)=>param.row.items[0].details.product[0].name,width:150},
+    { field: 'orderId', headerName: 'CleverPe OrderId',valueGetter:(param)=>param.row.orderId,width:200},
+    { field: 'modelNo', headerName: 'Model Id',valueGetter:(param)=>param.row.serialNo.modelId,width:150},
+    { field: 'serialNo', headerName: 'Serial No',valueGetter:(param)=>param.row.serialNo.serialNo,width:150},
     { field: 'total', headerName: 'Total',valueGetter:(param)=>param.row.total,width:150},
-    { field: 'items', headerName: 'Total Items',valueGetter:(param)=>param.row.items.length,width:150},
+    { field: 'Email', headerName: 'Merchant Email',valueGetter:(param)=>param.row.userDetails.email,width:150},
+    { field: 'Name', headerName: 'Merchant Name',valueGetter:(param)=>param.row.userDetails.name,width:150},
+    { field: 'Mobile No', headerName: 'Mobile Number',valueGetter:(param)=>param.row.userDetails.mobileNo,width:150},
     {field:"createdAt",headerName:"Created At",valueGetter:(param)=>moment.parseZone(param.value).local().format("DD/MM/YY"),width:120}
 
 
