@@ -48,10 +48,10 @@ function SignIn(props) {
         <p className="grey subtitle my-3">By continuing, you agree to CleverPe <Link to="/termsandconditions">Terms and Conditions</Link> of Use and <Link to="/privacypolicy">Privacy Policy</Link>.</p>
 
         <hr />
-        <div className="mt-3">
+        {/* <div className="mt-3">
           <p className="newtext">New to oem.cleverpe? Dive in by creating an account</p>
           <Button fullWidth variant="outlined" onClick={()=>props.history.push("/signup",props.location.state)}>create an account</Button>
-        </div>
+        </div> */}
         </form>
 
     <p className='grey subtitle mt-3'>

@@ -37,11 +37,13 @@ function ProductDetail(props) {
              </span>
             <h1>{product.name}</h1>
             <h4>Schemes</h4>
+            {/* interestBased */}
             {
                 product.schemes.map((item,index)=>
                 <div key={index} className="my-4">
                 <span>Name: <b>{item.scheme}</b></span>
                 <span className="ml-4">Subvention Cost: <b>{item.mbd}</b></span>
+                <span className="ml-4">Interest Based: <b>{item.interestBased?"Yes":"No"}</b></span>
                 </div>
                 )
             }
