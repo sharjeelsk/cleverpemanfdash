@@ -11,7 +11,7 @@ function SignIn(props) {
   const onSubmit = (data)=>{
     if(parseInt(data.mobile)){
       setError("")
-      axios.post(`${process.env.REACT_APP_DEVELOPMENT}/api/oem/signin`,{mobileNo:data.mobile})
+      axios.post(`${process.env.REACT_APP_DEVELOPMENT}/api/auth/oem/signin`,{mobileNo:data.mobile})
       .then(res=>{
         if(res.data.msg==="Error"){
           setError(res.data.result)
